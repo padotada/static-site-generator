@@ -40,7 +40,10 @@ class TestTextNode(unittest.TestCase):
         node2 = TextNode("This is the second text node", TextType.BOLD)
         self.assertNotEqual(node, node2)
     
-   
+    def test_neq_with_diff_text_types(self):
+        node = TextNode("This is a text node", TextType.BOLD)
+        node2 = TextNode("This is a text node", TextType.PLAIN)
+        self.assertNotEqual(node, node2)
 
 
 if __name__ == "__main__":
