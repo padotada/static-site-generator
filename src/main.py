@@ -77,11 +77,11 @@ def main():
     if len(sys.argv) > 1:
         basepath = sys.argv[1]
     source_dir = "static"
-    dest_dir = "public"
+    dest_dir = "docs"
     content_dir = "content"
     template_path = "template.html"
     copy_static_to_public(source_dir, dest_dir)
-    generate_pages_recursive(content_dir, template_path, "docs", basepath)
+    generate_pages_recursive(content_dir, template_path, dest_dir, basepath)
     
     
     
