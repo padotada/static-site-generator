@@ -266,5 +266,47 @@ This is a paragraph with **bold** text.
             "<div><h1>My Page</h1><p>This is a paragraph with <b>bold</b> text.</p><ul><li>One item</li><li>Two item</li></ul><ol><li>First</li><li>Second</li></ol><blockquote>A quote here</blockquote></div>",
         )
     
+
+class TestExtractTitle(unittest.TestCase):
+    def test_extract_title_simple(self):
+        markdown = "# Hello"
+        self.assertEqual(extract_title(markdown), "Hello")
+
+    def test_extract_title_with_extra_spaces(self):
+        markdown = "#    Hello World   "
+        self.assertEqual(extract_title(markdown), "Hello World")
+
+    def test_extract_title_multiline(self):
+        markdown = """
+Some paragraph text
+
+# My Page Title
+
+More text here
+"""
+        self.assertEqual(extract_title(markdown), "My Page Title")
+
+    def test_extract_title_ignores_h2(self):
+        markdown = """
+## This is not h1
+
+# This is h1
+"""
+        self.assertEqual(extract_title(markdown), "This is h1")
+
+    def test_extract_title_no_h1_raises_exception(self):
+        markdown = """
+This is a paragraph
+
+## This is only h2
+"""
+        with self.assertRaises(Exception):
+            extract_title(markdown)
+
+    def test_extract_title_no_space_after_hash_is_not_h1(self):
+        markdown = "#Hello"
+        with self.assertRaises(Exception):
+            extract_title(markdown)
+    
 if __name__ == '__main__':
     unittest.main()
