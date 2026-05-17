@@ -1,9 +1,9 @@
 import os
 import shutil
 import sys
-from textnode import *
-from inline_markdown import *
-from block_markdown import *
+from src.textnode import *
+from src.inline_markdown import *
+from src.block_markdown import *
 
 
 def copy_static_to_public(source: str, dest: str)->None:

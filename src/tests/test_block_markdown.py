@@ -1,6 +1,6 @@
 import unittest
-from block_markdown import *
-from htmlnode import *
+from src.block_markdown import *
+from src.htmlnode import *
 class TestMarkdownToBlocks(unittest.TestCase):
         def test_markdown_to_blocks(self):
             md = """

@@ -1,4 +1,4 @@
-from textnode import TextType, TextNode
+from src.textnode import TextType, TextNode
 import re
 def split_nodes_delimiter(old_nodes: list, delimiter: str, text_type: TextType):
     new_nodes = []
