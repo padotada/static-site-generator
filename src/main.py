@@ -54,12 +54,18 @@ def generate_page(from_path, template_path, dest_path):
 
     with open(dest_path, "w", encoding="utf-8") as output_file:
         output_file.write(full_html)
-     
+
 def main():
     source_dir = "static"
     dest_dir = "public"
     copy_static_to_public(source_dir, dest_dir)
     generate_page("content/index.md", "template.html", "public/index.html")
+    generate_page("content/blog/glorfindel/index.md", "template.html", "public/blog/glorfindel/index.html")
+    generate_page("content/blog/tom/index.md", "template.html", "public/blog/tom/index.html")
+    generate_page("content/blog/majesty/index.md", "template.html", "public/blog/majesty/index.html")
+    generate_page("content/contact/index.md", "template.html", "public/contact/index.html")
+    
+    
     
 if __name__ == '__main__':
     main()
